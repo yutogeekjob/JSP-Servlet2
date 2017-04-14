@@ -27,13 +27,16 @@ public class method extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    public String[] call(){
+    public void call(PrintWriter out){
             String yuto[]={"yuto","19950316","最近財布買いました"};
-            return yuto; 
+            for(int j=0;j<3;j++){
+            out.print(yuto[j]);
+            out.print("<br>");
+             } 
     }
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-          String[] print=call();
+          
         
         
         response.setContentType("text/html;charset=UTF-8");
@@ -46,10 +49,7 @@ public class method extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             for(int i=0;i<10;i++){
-             for(int j=0;j<3;j++){
-               out.println(print[j]);
-               out.println("<br>");
-             }
+             call(out);
             }
             out.println("</body>");
             out.println("</html>");

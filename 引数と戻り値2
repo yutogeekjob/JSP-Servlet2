@@ -68,7 +68,7 @@ public class arugumentreturnvalue2 extends HttpServlet {
             return info3;
         }
         else{
-            return info;
+            return null;
         }
     }
 
